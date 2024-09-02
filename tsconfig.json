@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",                           
+      "module": "ESNext",                           
+      "moduleResolution": "Node",                   
+      "strict": true,                               
+      "jsx": "preserve",                            
+      "esModuleInterop": true,                      
+      "skipLibCheck": true,                         
+      "forceConsistentCasingInFileNames": true,     
+      "useDefineForClassFields": true,              
+      "baseUrl": ".",                               
+      "paths": {                                    
+        "@/*": ["resources/js/src/*"]
+      }
+    },
+    "include": [
+      "resources/js/src/**/*.ts",
+      "resources/js/src/**/*.d.ts",
+      "resources/js/src/**/*.tsx",
+      "resources/js/src/**/*.vue"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+}
+  
