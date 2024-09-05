@@ -1,18 +1,26 @@
 <script setup lang="ts">
+import axios from 'axios';
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const logout = async () => {
+    try {
+      await axios.get('/logout');
+      router.push('/login');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
 </script>
 <template>
     <v-app-bar color="primary">
-        <template v-slot:prepend>
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
-        </template>
-
         <v-app-bar-title>
             献立作成アプリ
         </v-app-bar-title>
 
         <template v-slot:append>
-            <v-btn>
-                Sign-In
+            <v-btn @click="logout">
+                logout
             </v-btn>
 
             <v-btn>

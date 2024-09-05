@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
+        <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+        <title>Cooking</title>
         @vite(['resources/css/app.css', 'resources/js/src/app.js'])
     </head>
     <body>

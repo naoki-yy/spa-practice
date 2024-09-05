@@ -1,21 +1,21 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
-    <v-btn @click="logout" color="primary">
-      Logout
-    </v-btn>
-  </template>
+    <div class="text-h4 font-weight-bold text-center">ToDo</div>
+    <v-container class="w-75">
+        <v-table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>購入予定品</th>
+                    <th>備考</th>
+                </tr>
+            </thead>
+            <tbody>
 
-  <script setup lang="ts">
-  import { useRouter } from 'vue-router';
-  import axios from 'axios';
-
-  const router = useRouter();
-
-  const logout = async () => {
-    try {
-      await axios.get('/logout');
-      router.push('/login');
-    } catch (error) {
-      console.error('Logout failed:', error);
-    }
-  };
-  </script>
+            </tbody>
+        </v-table>
+    </v-container>
+</template>
