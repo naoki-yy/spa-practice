@@ -15,7 +15,7 @@ const logout = async () => {
 <template>
     <v-app-bar color="primary">
         <v-app-bar-title>
-            献立作成アプリ
+            SPA練習アプリ
         </v-app-bar-title>
 
         <template v-slot:append>

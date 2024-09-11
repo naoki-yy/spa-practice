@@ -33,15 +33,15 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
     if (to.meta.requiresAuth) {
         try {
-            const response = await axios.get("/api/user");
+            const response = await axios.get("/");
 
             if (response.data) {
                 next();
             } else {
-                next("/auth/google");
+                next("/");
             }
         } catch (error) {
-            next("/auth/google");
+            next("/");
         }
     } else {
         next(); // 認証不要なルートはそのまま進む
