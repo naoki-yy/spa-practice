@@ -29,6 +29,6 @@
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
         "VIEW_COMPILED_PATH": "/tmp",
-        "PHP_VERSION": "8.3"
+        "PHP_VERSION": "8.0"
     }
 }
