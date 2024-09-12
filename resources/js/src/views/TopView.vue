@@ -4,10 +4,19 @@ import axios from 'axios';
 import { useRouter } from 'vue-router';
 import AddButton from '../components/parts/AddButton.vue';
 
+interface ToDoLists {
+    id: number,
+    date: Date,
+    checking: number,
+    item: string,
+    memo: string,
+}
+
 const router = useRouter();
 const todo = ref(false);
 const new_item: Ref<string> = ref("");
 const memo: Ref<string> = ref("");
+const todolists: Ref<ToDoLists[]> = ref([]);
 
 const addTodo = () => {
     console.log('add');
@@ -16,8 +25,7 @@ const addTodo = () => {
 const init = async() => {
     try {
       const response = await axios.get('/api/todo');
-      console.log(response.data);
-
+      todolists.value = {...response.data}
     } catch (error) {
       console.error('Login failed:', error);
     }
@@ -42,15 +50,17 @@ onMounted(() => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="d-flex justify-center">
-                        <v-checkbox v-model="todo"></v-checkbox>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td><v-icon>mdi-pencil</v-icon></td>
-                    <td><v-icon>mdi-trash-can</v-icon></td>
-                </tr>
+                <template v-for="todolist in todolists" :key="todolist.id">
+                    <tr>
+                        <td class="d-flex justify-center">
+                            <v-checkbox v-model="todo"></v-checkbox>
+                        </td>
+                        <td>{{ todolist.item }}</td>
+                        <td>{{ todolist.memo }}</td>
+                        <td><v-icon>mdi-pencil</v-icon></td>
+                        <td><v-icon>mdi-trash-can</v-icon></td>
+                    </tr>
+                </template>
                 <tr>
                     <td class="d-flex align-center pt-7"><AddButton icon="mdi-plus" title="新規追加" @handle="addTodo" /></td>
                     <td class="pt-3"><v-text-field v-model="new_item" label="購入予定品" required></v-text-field></td>
